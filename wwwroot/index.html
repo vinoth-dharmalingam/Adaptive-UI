@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f5f1">
+  <meta name="description" content="A thoughtful little soundtrack for whatever you're feeling.">
+  <title>moodtune — music for how you feel</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="Moodtune home">
+      <span class="brand-mark" aria-hidden="true">m</span>
+      <span>moodtune</span>
+    </a>
+    <span class="topbar-note"><span class="live-dot"></span> YOUR MOOD, MEET YOUR MUSIC</span>
+  </header>
+
+  <main>
+    <section class="intro">
+      <p class="eyebrow"><span aria-hidden="true">✳</span> A SOUNDTRACK FOR RIGHT NOW</p>
+      <h1>How are you<br>feeling <span>today?</span></h1>
+      <p class="intro-copy">Somewhere between a feeling and a favorite song.<br>Tell us where you are — we'll find the music.</p>
+    </section>
+
+    <div class="app-grid">
+      <section class="mood-panel" aria-labelledby="mood-heading">
+        <div class="panel-heading">
+          <span class="step">01</span>
+          <div>
+            <h2 id="mood-heading">Set the feeling</h2>
+            <p>There are no wrong answers.</p>
+          </div>
+        </div>
+
+        <label class="field-label" for="mood-input">IN YOUR OWN WORDS</label>
+        <textarea id="mood-input" maxlength="240" rows="2" placeholder="A little restless, but hopeful...">I need a little lift</textarea>
+
+        <p class="field-label mood-label">OR PICK A MOOD</p>
+        <div class="mood-chips" role="group" aria-label="Choose a mood">
+          <button class="mood-chip" type="button" data-mood="joyful">☀️ <span>Joyful</span></button>
+          <button class="mood-chip" type="button" data-mood="blue">🌧️ <span>Blue</span></button>
+          <button class="mood-chip" type="button" data-mood="anxious">🌊 <span>Anxious</span></button>
+          <button class="mood-chip" type="button" data-mood="focused">🎯 <span>Focused</span></button>
+          <button class="mood-chip" type="button" data-mood="restless">⚡ <span>Restless</span></button>
+          <button class="mood-chip" type="button" data-mood="romantic">🌷 <span>Romantic</span></button>
+        </div>
+
+        <div class="preferences">
+          <div class="preference">
+            <label class="field-label" for="genre-select">YOUR SOUND</label>
+            <select id="genre-select">
+              <option>Any</option>
+              <option>Pop</option>
+              <option>Indie</option>
+              <option>R&amp;B</option>
+              <option>Electronic</option>
+              <option>Classical</option>
+              <option>Folk</option>
+              <option>Rock</option>
+              <option>Soundtrack</option>
+            </select>
+          </div>
+          <div class="preference energy-preference">
+            <div class="energy-label">
+              <label class="field-label" for="energy-slider">ENERGY</label>
+              <span id="energy-value">5 <span>/ 10</span></span>
+            </div>
+            <input id="energy-slider" type="range" min="1" max="10" value="5">
+            <div class="range-caption"><span>Soft &amp; slow</span><span>Up &amp; alive</span></div>
+          </div>
+        </div>
+
+        <button class="submit-button" id="recommend-button" type="button">
+          <span>Find my soundtrack</span>
+          <span aria-hidden="true">↗</span>
+        </button>
+        <p class="privacy-note"><span aria-hidden="true">✳</span> Just music, no judgement. Your mood stays yours.</p>
+      </section>
+
+      <section class="results-panel" aria-labelledby="results-heading" aria-live="polite">
+        <div class="results-topline">
+          <div class="panel-heading results-title">
+            <span class="step">02</span>
+            <div>
+              <h2 id="results-heading">Your little playlist</h2>
+              <p id="results-subtitle">Songs picked for this moment.</p>
+            </div>
+          </div>
+          <span class="ai-badge"><span aria-hidden="true">✳</span> <span id="source-label">MOODTUNE PICKS</span></span>
+        </div>
+        <p class="playlist-intro" id="playlist-intro">Your next favorite might be one song away.</p>
+        <div class="song-list" id="song-list">
+          <div class="empty-state">
+            <span class="empty-orbit" aria-hidden="true">♫</span>
+            <p>Your songs will find their way here.</p>
+            <span>Start with a feeling. We'll take it from there.</span>
+          </div>
+        </div>
+        <p class="results-footnote"><span aria-hidden="true">↗</span> Tap any song to find it on Spotify.</p>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <span>Made for the in-between moments.</span>
+    <span>GOOD MUSIC MEETS YOU WHERE YOU ARE <span class="footer-star">✳</span></span>
+  </footer>
+</body>
+</html>
