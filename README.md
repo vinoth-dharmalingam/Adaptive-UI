@@ -12,16 +12,21 @@ dotnet run
 
 Open the local URL printed by ASP.NET Core.
 
-## Enable AI recommendations
+## Run local AI recommendations
 
-Without an API key, the app ranks its built-in song catalog using the selected mood, genre, and energy level. To enable AI-powered selections from that same catalog, set your OpenAI API key in the server's environment before starting the app:
+Moodtune uses Ollama to run recommendations with a local language model; no paid API key is required. Install Ollama from [ollama.com/download](https://ollama.com/download), then open PowerShell and download the default model:
 
 ```powershell
-$env:OPENAI_API_KEY = "your-api-key"
+ollama pull qwen2.5:3b
+```
+
+Keep Ollama running in the background. In another PowerShell window, start Moodtune:
+
+```powershell
 dotnet run
 ```
 
-The app sends requests from the server, so the key is never exposed to the browser. The default model is `gpt-4o-mini`; set `OPENAI_MODEL` in the server environment to use a different compatible model. If a configured AI request fails, the app reports an error instead of silently switching modes.
+The default local model is `qwen2.5:3b` (about 2 GB to download); set `OLLAMA_MODEL` in the server environment to use another model already installed in Ollama. Moodtune sends prompts to the local Ollama service at `http://localhost:11434`, not to a paid cloud API. If Ollama is not running, the model is missing, or a local AI request fails, the app displays an error rather than silently switching to non-AI recommendations.
 
 ## API
 

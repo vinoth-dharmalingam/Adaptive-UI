@@ -59,7 +59,7 @@ recommendButton.addEventListener("click", async () => {
 
 function renderRecommendations(result) {
   playlistIntro.textContent = result.intro;
-  sourceLabel.textContent = result.source === "ai" ? "AI-CURATED FOR YOU" : "CURATED STARTING POINT";
+  sourceLabel.textContent = result.source === "local-ai" ? "ON-DEVICE AI · OLLAMA" : "UNVERIFIED SOURCE";
   songList.replaceChildren();
 
   result.recommendations.forEach(({ song, reason }, index) => {

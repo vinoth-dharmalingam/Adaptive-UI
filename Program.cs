@@ -44,16 +44,16 @@ app.MapPost("/api/recommendations", async (
     }
     catch (HttpRequestException exception)
     {
-        app.Logger.LogError(exception, "The AI recommendation request failed.");
+        app.Logger.LogError(exception, "The local AI recommendation request failed.");
         return Results.Problem(
-            "The AI music curator is unavailable right now. Please try again in a moment.",
+            "The local AI service is unavailable. Make sure Ollama is running and the selected model is installed, then try again.",
             statusCode: StatusCodes.Status502BadGateway);
     }
     catch (JsonException exception)
     {
-        app.Logger.LogError(exception, "The AI recommendation response could not be read.");
+        app.Logger.LogError(exception, "The local AI recommendation response could not be read.");
         return Results.Problem(
-            "The AI music curator returned an unreadable response. Please try again.",
+            "The local AI returned an unreadable response. Please try again.",
             statusCode: StatusCodes.Status502BadGateway);
     }
 });
